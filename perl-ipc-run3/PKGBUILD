@@ -1,22 +1,21 @@
 # Maintainer: Alan Young <harleypig@gmail.com>
-# Contributor: Lukas Fleischer <archlinux at cryptocrack dot de>
-# Contributor: François Charette <firmicus ατ gmx δοτ net>
+# Contributor: Max Roder <maxroder@web.de>
 # Generator  : CPANPLUS::Dist::Arch 1.19
 
-pkgname='perl-text-glob'
-pkgver='0.09'
-pkgrel='3'
-pkgdesc="match globbing patterns against text"
-arch=('i686' 'x86_64')
+pkgname='perl-ipc-run3'
+pkgver='0.045'
+pkgrel='1'
+pkgdesc="run a subprocess with input/ouput redirection"
+arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
 depends=('perl')
 makedepends=()
-url='http://search.cpan.org/dist/Text-Glob'
-source=('http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Text-Glob-0.09.tar.gz')
-md5sums=('1daa10e087f891c49b720a5c551a024b')
-sha512sums=('9b729e4ece88ad79e1b637c7f35e5e1ecae3fd7f62c408ed4f3fcac2e8e8afff32d7d805e1b0269800aada5ae609d03335d42ac54def2797d301e91fa488ae47')
-_distdir="${srcdir}/Text-Glob-0.09"
+url='http://search.cpan.org/dist/IPC-Run3'
+source=('http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/IPC-Run3-0.045.tar.gz')
+md5sums=('e8913c03a8a6c6297a6e622d656e343a')
+sha512sums=('966657fb3b6b3db02b00017f3f77a76610e848dc119d61dc28eb5b72dfe2d691fb2e210336127a2e4520ea465e4d9e412c980795e8e5c354b9874761c4123944')
+_distdir="${srcdir}/IPC-Run3-0.045"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
