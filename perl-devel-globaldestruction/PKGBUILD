@@ -1,0 +1,65 @@
+# Contributor: AUR Perl <aurperl@juster.info>
+# Contributor: Alan Young <harleypig@gmail.com>
+# Generator  : CPANPLUS::Dist::Arch 1.15
+
+# Modified from original perl-devel-globaldestruction PKGBUILD
+
+pkgname='perl-devel-globaldestruction-git'
+pkgver=20120531
+pkgrel=1
+pkgdesc="Expose the flag which marks global, git version"
+arch=('i686' 'x86_64')
+license=('PerlArtistic' 'GPL')
+options=('!emptydirs')
+depends=('perl>=5.6.0' 'perl-sub-exporter')
+makedepends=()
+url='http://search.cpan.org/dist/Devel-GlobalDestruction'
+
+_gitroot='git://git.shadowcat.co.uk/p5sagit/Devel-GlobalDestruction.git'
+_gitname='Devel-GlobalDestruction'
+
+build() {
+  cd "$srcdir"
+
+  msg "Connecting to git server ..."
+
+  if [ -d "$srcdir/$_gitname" ]; then
+
+    cd $_gitname && git pull origin
+
+  else
+
+    git clone "$_gitroot"
+    cd $_gitname
+
+  fi
+
+  ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
+      PERL_AUTOINSTALL=--skipdeps                            \
+      PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+      PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+      MODULEBUILDRC=/dev/null
+
+    /usr/bin/perl Makefile.PL
+    make
+  )
+}
+
+check() {
+  cd "$_gitname"
+  ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""
+    make test
+  )
+}
+
+package() {
+  cd "$_gitname"
+  make install
+  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+}
+
+# Local Variables:
+# mode: shell-script
+# sh-basic-offset: 2
+# End:
+# vim:set ts=2 sw=2 et:
