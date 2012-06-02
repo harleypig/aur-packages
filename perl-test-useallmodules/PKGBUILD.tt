@@ -1,5 +1,5 @@
-# CPAN Name  : IPC-Run3-Simple
-# Maintainer: Alan Young <harleypig@gmail.com>
+# CPAN Name  : Test-UseAllModules
+# Maintainer : Alan Young <harleypig@gmail.com>
 # Generator  : CPANPLUS::Dist::Arch [% version %]
 
 pkgname='[% pkgname %]'
@@ -14,8 +14,8 @@ makedepends=([% makedepends %])
 url='[% url %]'
 source=('[% source %]')
 md5sums=('[% md5sums %]')
-sha512sums=('8244f3db9f1d23ef571657b4fb7484c6767a476e7574a34f70c2e002b2a8dfa235cf8f27cecf367d2ad84844157199cb7e80b713700df2d2a706c0aee7cdd2fd')
-_distdir="${srcdir}/IPC-Run3-Simple-[% pkgver %]"
+sha512sums=('[% sha512sums %]')
+_distdir="${srcdir}/Test-UseAllModules-[% pkgver %]"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \

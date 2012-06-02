@@ -1,12 +1,12 @@
-# CPAN Name  : IPC-Run3-Simple
-# Maintainer: Alan Young <harleypig@gmail.com>
+# CPAN Name  : Net-CloudStack
+# Contributor: [% packager %]
 # Generator  : CPANPLUS::Dist::Arch [% version %]
 
 pkgname='[% pkgname %]'
 pkgver='[% pkgver %]'
-pkgrel='1'
+pkgrel='[% pkgrel %]'
 pkgdesc="[% pkgdesc %]"
-arch=('any')
+arch=([% arch %])
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
 depends=([% depends %])
@@ -14,8 +14,10 @@ makedepends=([% makedepends %])
 url='[% url %]'
 source=('[% source %]')
 md5sums=('[% md5sums %]')
-sha512sums=('8244f3db9f1d23ef571657b4fb7484c6767a476e7574a34f70c2e002b2a8dfa235cf8f27cecf367d2ad84844157199cb7e80b713700df2d2a706c0aee7cdd2fd')
-_distdir="${srcdir}/IPC-Run3-Simple-[% pkgver %]"
+[% IF sha512sums -%]
+sha512sums=('[% sha512sums %]')
+[% END -%]
+_distdir="${srcdir}/Net-CloudStack-[% pkgver %]"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
@@ -25,21 +27,38 @@ build() {
       MODULEBUILDRC=/dev/null
 
     cd "$_distdir"
+[% IF is_makemaker -%]
+    /usr/bin/perl Makefile.PL
+    make
+[% END -%]
+[% IF is_modulebuild -%]
     /usr/bin/perl Build.PL
     /usr/bin/perl Build
+[% END -%]
   )
 }
 
 check() {
   cd "$_distdir"
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""
+[% IF is_makemaker -%]
+    make test
+[% END -%]
+[% IF is_modulebuild -%]
     /usr/bin/perl Build test
+[% END -%]
   )
 }
 
 package() {
   cd "$_distdir"
+[% IF is_makemaker -%]
+  make install
+[% END -%]
+[% IF is_modulebuild -%]
   /usr/bin/perl Build install
+[% END -%]
+
   find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
 }
 
