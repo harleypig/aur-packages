@@ -5,7 +5,7 @@
 pkgname='perl-net-cloudstack'
 pkgver='0.01002'
 pkgrel='1'
-pkgdesc="Bindings for the CloudStack API"
+pkgdesc="Bindings for the CloudStack API"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')

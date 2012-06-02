@@ -15,7 +15,7 @@ url='[% url %]'
 source=('[% source %]')
 md5sums=('[% md5sums %]')
 sha512sums=('[% sha512sums %]')
-_distdir="${srcdir}/Template-Plugin-Stash-Template-Plugin-Stash"
+_distdir="${srcdir}/Template-Plugin-Stash-[% pkgver %]"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
