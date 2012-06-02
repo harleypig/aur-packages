@@ -1,5 +1,6 @@
+# CPAN Name  : IPC-Run3-Simple
 # Maintainer: Alan Young <harleypig@gmail.com>
-# Generator  : CPANPLUS::Dist::Arch 1.19
+# Generator  : CPANPLUS::Dist::Arch 1.21
 
 pkgname='perl-ipc-run3-simple'
 pkgver='0.011'
@@ -8,8 +9,8 @@ pkgdesc="Simple utility module to make the easy to use IPC::Run3 even more easy 
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
-depends=('perl-capture-tiny' 'perl-ipc-run3')
-makedepends=('perl>=5.004' 'perl-test-checkdeps' 'perl-test-most' 'perl-test-nowarnings' 'perl-test-requires' 'perl-test-useallmodules')
+depends=('perl>=5.004' 'perl-capture-tiny' 'perl-ipc-run3')
+makedepends=('perl-test-checkdeps' 'perl-test-most' 'perl-test-nowarnings' 'perl-test-requires' 'perl-test-useallmodules')
 url='http://search.cpan.org/dist/IPC-Run3-Simple'
 source=('http://search.cpan.org/CPAN/authors/id/A/AY/AYOUNG/IPC-Run3-Simple-0.011.tar.gz')
 md5sums=('aa4f5fbe05905d5908fd8b0d44f09565')

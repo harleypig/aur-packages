@@ -1,21 +1,21 @@
-# CPAN Name  : Text-Glob
+# CPAN Name  : Test-CheckDeps
 # Maintainer : Alan Young <harleypig@gmail.com>
 # Generator  : CPANPLUS::Dist::Arch 1.21
 
-pkgname='perl-text-glob'
-pkgver='0.09'
+pkgname='perl-test-checkdeps'
+pkgver='0.002'
 pkgrel='1'
-pkgdesc="match globbing patterns against text"
+pkgdesc="Check for presence of dependencies"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
-depends=('perl')
+depends=('perl-cpan-meta-check')
 makedepends=()
-url='http://search.cpan.org/dist/Text-Glob'
-source=('http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Text-Glob-0.09.tar.gz')
-md5sums=('1daa10e087f891c49b720a5c551a024b')
-sha512sums=('9b729e4ece88ad79e1b637c7f35e5e1ecae3fd7f62c408ed4f3fcac2e8e8afff32d7d805e1b0269800aada5ae609d03335d42ac54def2797d301e91fa488ae47')
-_distdir="${srcdir}/Text-Glob-0.09"
+url='http://search.cpan.org/dist/Test-CheckDeps'
+source=('http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/Test-CheckDeps-0.002.tar.gz')
+md5sums=('e9dfcb9aa071ee3e3d66578432b8468d')
+sha512sums=('ddaeee6b6d489faf1128d82a339c632ba5ea504da3d5d25892f02cc6455a44da9957fa963af6726812d58b5f6dc8547bfd7f42efab17aa2603314966815e28f5')
+_distdir="${srcdir}/Test-CheckDeps-0.002"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \

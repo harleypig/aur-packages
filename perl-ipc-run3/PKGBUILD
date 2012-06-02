@@ -1,6 +1,6 @@
-# Maintainer: Alan Young <harleypig@gmail.com>
-# Contributor: Max Roder <maxroder@web.de>
-# Generator  : CPANPLUS::Dist::Arch 1.19
+# CPAN Name  : IPC-Run3
+# Maintainer : Alan Young <harleypig@gmail.com>
+# Generator  : CPANPLUS::Dist::Arch 1.21
 
 pkgname='perl-ipc-run3'
 pkgver='0.045'
@@ -25,21 +25,21 @@ build() {
       MODULEBUILDRC=/dev/null
 
     cd "$_distdir"
-    /usr/bin/perl Makefile.PL
-    make
+    /usr/bin/perl Build.PL
+    /usr/bin/perl Build
   )
 }
 
 check() {
   cd "$_distdir"
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""
-    make test
+    /usr/bin/perl Build test
   )
 }
 
 package() {
   cd "$_distdir"
-  make install
+  /usr/bin/perl Build install
   find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
 }
 

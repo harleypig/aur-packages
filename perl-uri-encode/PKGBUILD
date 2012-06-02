@@ -1,21 +1,21 @@
-# CPAN Name  : Text-Glob
+# CPAN Name  : URI-Encode
 # Maintainer : Alan Young <harleypig@gmail.com>
 # Generator  : CPANPLUS::Dist::Arch 1.21
 
-pkgname='perl-text-glob'
-pkgver='0.09'
+pkgname='perl-uri-encode'
+pkgver='0.061'
 pkgrel='1'
-pkgdesc="match globbing patterns against text"
+pkgdesc="Simple percent Encoding/Decoding"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
 depends=('perl')
 makedepends=()
-url='http://search.cpan.org/dist/Text-Glob'
-source=('http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Text-Glob-0.09.tar.gz')
-md5sums=('1daa10e087f891c49b720a5c551a024b')
-sha512sums=('9b729e4ece88ad79e1b637c7f35e5e1ecae3fd7f62c408ed4f3fcac2e8e8afff32d7d805e1b0269800aada5ae609d03335d42ac54def2797d301e91fa488ae47')
-_distdir="${srcdir}/Text-Glob-0.09"
+url='http://search.cpan.org/dist/URI-Encode'
+source=('http://search.cpan.org/CPAN/authors/id/M/MI/MITHUN/URI-Encode-0.061.tar.gz')
+md5sums=('a0d76d5e4d6a5c81ff0d777772c802e8')
+sha512sums=('07fb68281a5bd3860126e52329f7359f1501cc619e5e540dac37b35ebe6e1c1fd79290cef3391331f3135d96753efbb1d9f86e29206b436387ad0d329ebbda31')
+_distdir="${srcdir}/URI-Encode-0.061"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \

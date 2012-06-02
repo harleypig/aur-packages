@@ -1,21 +1,21 @@
-# CPAN Name  : Text-Glob
+# CPAN Name  : Pod-Wordlist-hanekomu
 # Maintainer : Alan Young <harleypig@gmail.com>
 # Generator  : CPANPLUS::Dist::Arch 1.21
 
-pkgname='perl-text-glob'
-pkgver='0.09'
+pkgname='perl-pod-wordlist-hanekomu'
+pkgver='1.121370'
 pkgrel='1'
-pkgdesc="match globbing patterns against text"
+pkgdesc="Add words for spell checking POD"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
 depends=('perl')
-makedepends=()
-url='http://search.cpan.org/dist/Text-Glob'
-source=('http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Text-Glob-0.09.tar.gz')
-md5sums=('1daa10e087f891c49b720a5c551a024b')
-sha512sums=('9b729e4ece88ad79e1b637c7f35e5e1ecae3fd7f62c408ed4f3fcac2e8e8afff32d7d805e1b0269800aada5ae609d03335d42ac54def2797d301e91fa488ae47')
-_distdir="${srcdir}/Text-Glob-0.09"
+makedepends=('perl-test-spelling')
+url='http://search.cpan.org/dist/Pod-Wordlist-hanekomu'
+source=('http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/Pod-Wordlist-hanekomu-1.121370.tar.gz')
+md5sums=('e03aa9c8de19e4b0918a950807991157')
+sha512sums=('ad593c27a293438c98b3cfb8872f366157a1a4d0fd7099a896c2e5d38c5d7c558b9d8aede9c93572da18d574967c60812fa01cc93767bd39febf34206ecc43f3')
+_distdir="${srcdir}/Pod-Wordlist-hanekomu-1.121370"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \

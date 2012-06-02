@@ -1,21 +1,21 @@
-# CPAN Name  : Text-Glob
+# CPAN Name  : CPAN-Meta-Check
 # Maintainer : Alan Young <harleypig@gmail.com>
 # Generator  : CPANPLUS::Dist::Arch 1.21
 
-pkgname='perl-text-glob'
-pkgver='0.09'
+pkgname='perl-cpan-meta-check'
+pkgver='0.004'
 pkgrel='1'
-pkgdesc="match globbing patterns against text"
+pkgdesc="Verify requirements in a CPAN::Meta object"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
-depends=('perl')
-makedepends=()
-url='http://search.cpan.org/dist/Text-Glob'
-source=('http://search.cpan.org/CPAN/authors/id/R/RC/RCLAMP/Text-Glob-0.09.tar.gz')
-md5sums=('1daa10e087f891c49b720a5c551a024b')
-sha512sums=('9b729e4ece88ad79e1b637c7f35e5e1ecae3fd7f62c408ed4f3fcac2e8e8afff32d7d805e1b0269800aada5ae609d03335d42ac54def2797d301e91fa488ae47')
-_distdir="${srcdir}/Text-Glob-0.09"
+depends=('perl-cpan-meta>=2.120920' 'perl-cpan-meta-requirements>=2.120920')
+makedepends=('perl-test-differences')
+url='http://search.cpan.org/dist/CPAN-Meta-Check'
+source=('http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/CPAN-Meta-Check-0.004.tar.gz')
+md5sums=('a05c3d14f1de09416ca601922dd52560')
+sha512sums=('651905e815ac4f004a9fc7fda678d265d2b629bc11fe2ad234c0c85531de505bea13f7f64f455ef3790860870599b5365d6a40ad1d0ecf714c90c1cdc78c9a97')
+_distdir="${srcdir}/CPAN-Meta-Check-0.004"
 
 build() {
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \

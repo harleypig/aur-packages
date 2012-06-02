@@ -5,11 +5,13 @@ dirs="${dirs} perl-cpan-meta-check"
 dirs="${dirs} perl-cpan-meta-requirements"
 dirs="${dirs} perl-ipc-run3"
 dirs="${dirs} perl-ipc-run3-simple"
+dirs="${dirs} perl-net-cloudstack"
 dirs="${dirs} perl-pod-wordlist-hanekomu"
 dirs="${dirs} perl-template-plugin-stash"
 dirs="${dirs} perl-test-checkdeps"
 dirs="${dirs} perl-test-useallmodules"
 dirs="${dirs} perl-text-glob"
+dirs="${dirs} perl-uri-encode"
 #dirs="${dirs} 
 
 for d in $dirs; do

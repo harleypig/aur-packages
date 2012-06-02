@@ -1,60 +1,45 @@
-# Contributor: AUR Perl <aurperl@juster.info>
-# Contributor: Alan Young <harleypig@gmail.com>
-# Generator  : CPANPLUS::Dist::Arch 1.15
+# CPAN Name  : Devel-GlobalDestruction
+# Maintainer : Alan Young <harleypig@gmail.com>
+# Generator  : CPANPLUS::Dist::Arch 1.21
 
-# Modified from original perl-devel-globaldestruction PKGBUILD
-
-pkgname='perl-devel-globaldestruction-git'
-pkgver=20120531
-pkgrel=1
-pkgdesc="Expose the flag which marks global, git version"
-arch=('i686' 'x86_64')
+pkgname='perl-devel-globaldestruction'
+pkgver='0.05'
+pkgrel='1'
+pkgdesc="Expose the flag which marks global"
+arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
 depends=('perl>=5.6.0' 'perl-sub-exporter')
 makedepends=()
 url='http://search.cpan.org/dist/Devel-GlobalDestruction'
-
-_gitroot='git://git.shadowcat.co.uk/p5sagit/Devel-GlobalDestruction.git'
-_gitname='Devel-GlobalDestruction'
+source=('http://search.cpan.org/CPAN/authors/id/D/DO/DOY/Devel-GlobalDestruction-0.05.tar.gz')
+md5sums=('e99ef189e9f85549e42c32b5168f7f47')
+sha512sums=('d58c0a26f50c8798ee47bc3e9e8e26650b57fb724cf7b408572b7cd7f1d733215bd9e7e23fcc96ee2d8875388c92fbed6fd5110831339c6eb35c49b26a69c6b7')
+_distdir="${srcdir}/Devel-GlobalDestruction-0.05"
 
 build() {
-  cd "$srcdir"
-
-  msg "Connecting to git server ..."
-
-  if [ -d "$srcdir/$_gitname" ]; then
-
-    cd $_gitname && git pull origin
-
-  else
-
-    git clone "$_gitroot"
-    cd $_gitname
-
-  fi
-
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
       PERL_AUTOINSTALL=--skipdeps                            \
       PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
       PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
       MODULEBUILDRC=/dev/null
 
-    /usr/bin/perl Makefile.PL
-    make
+    cd "$_distdir"
+    /usr/bin/perl Build.PL
+    /usr/bin/perl Build
   )
 }
 
 check() {
-  cd "$_gitname"
+  cd "$_distdir"
   ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""
-    make test
+    /usr/bin/perl Build test
   )
 }
 
 package() {
-  cd "$_gitname"
-  make install
+  cd "$_distdir"
+  /usr/bin/perl Build install
   find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
 }
 
