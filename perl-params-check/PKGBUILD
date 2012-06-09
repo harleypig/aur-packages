@@ -1,0 +1,93 @@
+# CPAN Name  : Params-Check
+# Maintainer : Alan Young <harleypig@gmail.com>
+# Generator  : CPANPLUS::Dist::Arch 1.21
+# Repository : http://github.com/harleypig/aur-packages
+
+arch=('any')
+depends=('perl')
+license=('PerlArtistic' 'GPL')
+makedepends=()
+md5sums=('3bf19a6ca0eb1e4f2740b791ca890813')
+options=('!emptydirs')
+pkgdesc="A generic input parsing/checking mechanism."
+pkgname='perl-params-check'
+pkgrel='1'
+pkgver='0.36'
+sha512sums=('62a400f697d12688e2dcd661fdf4128a89bb01b28df80a1e0c0befc512491044598f9ba0dd814c01853e566425bb898173ecc48b3bdc365183b0568c530f6dd2')
+source=('http://search.cpan.org/CPAN/authors/id/B/BI/BINGOS/Params-Check-0.36.tar.gz')
+url='http://search.cpan.org/dist/Params-Check'
+
+_distdir="${srcdir}/Params-Check-0.36"
+
+build() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    /usr/bin/perl Build.PL
+    ./Build
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    /usr/bin/perl Makefile.PL
+    make
+
+  fi
+
+}
+
+check() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build test
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make test
+
+  fi
+
+}
+
+package() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build install
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make install
+
+  fi
+
+  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+
+}
