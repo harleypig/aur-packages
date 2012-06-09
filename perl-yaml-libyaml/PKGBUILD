@@ -1,27 +1,23 @@
-# CPAN Name  : CPAN-Meta-Check
+# CPAN Name  : YAML-LibYAML
 # Maintainer : Alan Young <harleypig@gmail.com>
 # Generator  : CPANPLUS::Dist::Arch 1.21
+# Repository : http://github.com/harleypig/aur-packages
 
 arch=('any')
-backup=()
-conflicts=()
-depends=('perl-cpan-meta' 'perl-cpan-meta-requirements')
-install=
+depends=('perl>=5.8.1')
 license=('PerlArtistic' 'GPL')
-makedepends=('perl-test-differences')
-md5sums=('a05c3d14f1de09416ca601922dd52560')
+makedepends=()
+md5sums=('4aadbcf1afcce9ce087f9bffd293e43e')
 options=('!emptydirs')
-pkgdesc="Verify requirements in a CPAN::Meta object"
-pkgname='perl-cpan-meta-check'
-pkgrel='3'
-pkgver='0.004'
-provides=()
-replaces=()
-sha512sums=('651905e815ac4f004a9fc7fda678d265d2b629bc11fe2ad234c0c85531de505bea13f7f64f455ef3790860870599b5365d6a40ad1d0ecf714c90c1cdc78c9a97')
-source=('http://search.cpan.org/CPAN/authors/id/L/LE/LEONT/CPAN-Meta-Check-0.004.tar.gz')
-url='http://search.cpan.org/dist/CPAN-Meta-Check'
+pkgdesc=""
+pkgname='perl-yaml-libyaml'
+pkgrel='1'
+pkgver='0.38'
+sha512sums=('e49366b88dc3ae49362abf3947fc5c39140abe9df904541d84b983ea226fe0e0f2dd46d39e193764d8698da6742ef8f9071a57b184d8ce4e65ef1e74fe945be7')
+source=('http://search.cpan.org/CPAN/authors/id/I/IN/INGY/YAML-LibYAML-0.38.tar.gz')
+url='http://search.cpan.org/dist/YAML-LibYAML'
 
-_distdir="${srcdir}/CPAN-Meta-Check-0.004"
+_distdir="${srcdir}/YAML-LibYAML-0.38"
 
 build() {
 

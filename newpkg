@@ -1,0 +1,17 @@
+#!/bin/bash
+
+CPANName=$1
+CPANName=${CPANName//::/-}
+
+PKGName=$(perl -e "\$a=lc '$CPANName';printf'perl-%s',\$a")
+
+mkdir $PKGName
+cp PKGBUILD.tt $PKGName
+cp .gitignore_base $PKGName/.gitignore
+git add $PKGName
+cd $PKGName
+perl -pi -e "s/<<CPANName>>/$CPANName/" PKGBUILD.tt
+perl -pi -e "s/<<CPANName>>/$CPANName/" .gitignore
+cpan2aur .
+makepkg -s
+namcap PKGBUILD

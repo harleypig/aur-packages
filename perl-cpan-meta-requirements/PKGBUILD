@@ -2,49 +2,96 @@
 # Maintainer : Alan Young <harleypig@gmail.com>
 # Generator  : CPANPLUS::Dist::Arch 1.21
 
-pkgname='perl-cpan-meta-requirements'
-pkgver='2.122'
-pkgrel='3'
-pkgdesc="a set of version requirements for a CPAN dist"
 arch=('any')
-license=('PerlArtistic' 'GPL')
-options=('!emptydirs')
+backup=()
+conflicts=()
 depends=('perl')
+install=
+license=('PerlArtistic' 'GPL')
 makedepends=()
-url='http://search.cpan.org/dist/CPAN-Meta-Requirements'
-source=('http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/CPAN-Meta-Requirements-2.122.tar.gz')
 md5sums=('37f62b1e5c254ddc852bac6872f053ba')
+options=('!emptydirs')
+pkgdesc="a set of version requirements for a CPAN dist"
+pkgname='perl-cpan-meta-requirements'
+pkgrel='3'
+pkgver='2.122'
+provides=()
+replaces=()
 sha512sums=('cd77c003caf870b16c7ab51e99cc15919f4c93487a0bdf33104bed5a1ed3adabadf27f04d69d4a87700f8d01f22d71c6e4401edc8fa1800a3306cac3896c96d5')
+source=('http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/CPAN-Meta-Requirements-2.122.tar.gz')
+url='http://search.cpan.org/dist/CPAN-Meta-Requirements'
+
 _distdir="${srcdir}/CPAN-Meta-Requirements-2.122"
 
 build() {
-  ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""                 \
-      PERL_AUTOINSTALL=--skipdeps                            \
-      PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
-      PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
-      MODULEBUILDRC=/dev/null
 
-    cd "$_distdir"
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    /usr/bin/perl Build.PL
+    ./Build
+
+  elif [[ -e ./Makefile.PL ]]; then
+
     /usr/bin/perl Makefile.PL
     make
-  )
+
+  fi
+
 }
 
 check() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
   cd "$_distdir"
-  ( export PERL_MM_USE_DEFAULT=1 PERL5LIB=""
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build test
+
+  elif [[ -e ./Makefile.PL ]]; then
+
     make test
-  )
+
+  fi
+
 }
 
 package() {
-  cd "$_distdir"
-  make install
-  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
-}
 
-# Local Variables:
-# mode: shell-script
-# sh-basic-offset: 2
-# End:
-# vim:set ts=2 sw=2 et:
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build install
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make install
+
+  fi
+
+  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+
+}

@@ -3,6 +3,7 @@
 dirs=
 dirs="${dirs} perl-cpan-meta-check"
 dirs="${dirs} perl-cpan-meta-requirements"
+dirs="${dirs} perl-devel-globaldestruction"
 dirs="${dirs} perl-ipc-run3"
 dirs="${dirs} perl-ipc-run3-simple"
 dirs="${dirs} perl-net-cloudstack"
