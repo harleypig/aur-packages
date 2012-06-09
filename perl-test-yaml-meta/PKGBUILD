@@ -1,0 +1,93 @@
+# CPAN Name  : Test-YAML-Meta
+# Maintainer : Alan Young <harleypig@gmail.com>
+# Generator  : CPANPLUS::Dist::Arch 1.21
+# Repository : http://github.com/harleypig/aur-packages
+
+arch=('any')
+depends=('perl-test-cpan-meta-yaml>=0.17' 'perl-test-yaml-valid>=0.03')
+license=('PerlArtistic' 'GPL')
+makedepends=()
+md5sums=('d63f50028c468e8f8f7daabc1f869e33')
+options=('!emptydirs')
+pkgdesc="A test module to validate a META.yml file."
+pkgname='perl-test-yaml-meta'
+pkgrel='2'
+pkgver='0.19'
+sha512sums=('0f1e6b6c0de6cca1769d8f1a1c8224de4bb0397820e7bc0846c26c46fa0b52a867099ca19c08a5342eb70579b0b54cef384f990bd87af7df080e7b4c923ff02a')
+source=('http://search.cpan.org/CPAN/authors/id/B/BA/BARBIE/Test-YAML-Meta-0.19.tar.gz')
+url='http://search.cpan.org/dist/Test-YAML-Meta'
+
+_distdir="${srcdir}/Test-YAML-Meta-0.19"
+
+build() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    /usr/bin/perl Build.PL
+    ./Build
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    /usr/bin/perl Makefile.PL
+    make
+
+  fi
+
+}
+
+check() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build test
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make test
+
+  fi
+
+}
+
+package() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build install
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make install
+
+  fi
+
+  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+
+}
