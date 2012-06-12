@@ -1,0 +1,93 @@
+# CPAN Name  : File-ChangeNotify
+# Maintainer : Alan Young <harleypig@gmail.com>
+# Generator  : CPANPLUS::Dist::Arch 1.21
+# Repository : http://github.com/harleypig/aur-packages
+
+arch=('any')
+depends=('perl-class-load' 'perl-list-moreutils' 'perl-moose' 'perl-moosex-params-validate' 'perl-moosex-semiaffordanceaccessor' 'perl-namespace-autoclean')
+license=('PerlArtistic' 'GPL')
+makedepends=('perl-test-exception')
+md5sums=('29a45b3cff9798622f71a8560e8c6d28')
+options=('!emptydirs')
+pkgdesc="Watch for changes to files, cross-platform style"
+pkgname='perl-file-changenotify'
+pkgrel='2'
+pkgver='0.22'
+sha512sums=('ba777cfdb5f4d49a1e9d9cb92a9b172babd7a950a3838c5ce7b06f36927a00afe13cafebca6669945b68e40e4553e160b58c07de14f117826177502836f65413')
+source=('http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/File-ChangeNotify-0.22.tar.gz')
+url='http://search.cpan.org/dist/File-ChangeNotify'
+
+_distdir="${srcdir}/File-ChangeNotify-0.22"
+
+build() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    /usr/bin/perl Build.PL
+    ./Build
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    /usr/bin/perl Makefile.PL
+    make
+
+  fi
+
+}
+
+check() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build test
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make test
+
+  fi
+
+}
+
+package() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build install
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make install
+
+  fi
+
+  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+
+}

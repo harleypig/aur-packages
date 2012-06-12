@@ -1,0 +1,93 @@
+# CPAN Name  : Test-EOL
+# Maintainer : Alan Young <harleypig@gmail.com>
+# Generator  : CPANPLUS::Dist::Arch 1.21
+# Repository : http://github.com/harleypig/aur-packages
+
+arch=('any')
+depends=('perl')
+license=('PerlArtistic' 'GPL')
+makedepends=()
+md5sums=('daaffe10b30779567def40b22d432aec')
+options=('!emptydirs')
+pkgdesc="Check the correct line endings in your project"
+pkgname='perl-test-eol'
+pkgrel='2'
+pkgver='1.1'
+sha512sums=('c2c3a8940df618717e8ad0449692aca9fcec29d3a81efbf6a8654c5615f451e188093ad077a39846ff159f27dc0a37b46760c84bb17d3fa7588b8bdf44cece84')
+source=('http://search.cpan.org/CPAN/authors/id/R/RI/RIBASUSHI/Test-EOL-1.1.tar.gz')
+url='http://search.cpan.org/dist/Test-EOL'
+
+_distdir="${srcdir}/Test-EOL-1.1"
+
+build() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    /usr/bin/perl Build.PL
+    ./Build
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    /usr/bin/perl Makefile.PL
+    make
+
+  fi
+
+}
+
+check() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build test
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make test
+
+  fi
+
+}
+
+package() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build install
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make install
+
+  fi
+
+  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+
+}
