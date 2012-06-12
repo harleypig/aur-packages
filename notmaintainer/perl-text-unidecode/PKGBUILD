@@ -1,0 +1,93 @@
+# CPAN Name  : Text-Unidecode
+# Maintainer : Alan Young <harleypig@gmail.com>
+# Generator  : CPANPLUS::Dist::Arch 1.21
+# Repository : http://github.com/harleypig/aur-packages
+
+arch=('any')
+depends=('perl')
+license=('PerlArtistic' 'GPL')
+makedepends=()
+md5sums=('06f6bddb396ab386aa66a2bc8a04df76')
+options=('!emptydirs')
+pkgdesc="US-ASCII transliterations of Unicode text"
+pkgname='perl-text-unidecode'
+pkgrel='1'
+pkgver='0.04'
+sha512sums=('518d1cfa13134c133a1c369e3bc6a708c667e0fa500b20a225ddf216098c496968cd0767d3bc372fcc2444f196a485f7a89587cf0caebc3de4417769216683c9')
+source=('http://search.cpan.org/CPAN/authors/id/S/SB/SBURKE/Text-Unidecode-0.04.tar.gz')
+url='http://search.cpan.org/dist/Text-Unidecode'
+
+_distdir="${srcdir}/Text-Unidecode-0.04"
+
+build() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    /usr/bin/perl Build.PL
+    ./Build
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    /usr/bin/perl Makefile.PL
+    make
+
+  fi
+
+}
+
+check() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build test
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make test
+
+  fi
+
+}
+
+package() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build install
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make install
+
+  fi
+
+  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+
+}

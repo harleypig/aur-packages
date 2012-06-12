@@ -1,0 +1,93 @@
+# CPAN Name  : BackPAN-Index
+# Maintainer : Alan Young <harleypig@gmail.com>
+# Generator  : CPANPLUS::Dist::Arch 1.21
+# Repository : http://github.com/harleypig/aur-packages
+
+arch=('any')
+depends=('perl-app-cache>=0.37' 'perl-class>=1.00' 'perl-class-accessor' 'perl-cpan-distnameinfo>=0.09' 'perl-dbd-sqlite>=1.25' 'perl-dbix-class>=0.08109' 'perl-dbix-class-schema-loader>=0.05003' 'perl-libwww' 'perl-path-class>=0.17')
+license=('PerlArtistic' 'GPL')
+makedepends=('perl-test-compile>=0.11')
+md5sums=('e95c44656032890ef7925a778467ab34')
+options=('!emptydirs')
+pkgdesc="An interface to the BackPAN index"
+pkgname='perl-backpan-index'
+pkgrel='1'
+pkgver='0.40'
+sha512sums=('85a68bb37929e5784b73cad77111e1353cfadaf462c69d3ced69593d110540e82888ae43dc8db2a8e7a93d840bf91e01b7f9493644b01a85ae8e2d277b2b1f04')
+source=('http://search.cpan.org/CPAN/authors/id/M/MS/MSCHWERN/BackPAN-Index-0.40.tar.gz')
+url='http://search.cpan.org/dist/BackPAN-Index'
+
+_distdir="${srcdir}/BackPAN-Index-0.40"
+
+build() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    /usr/bin/perl Build.PL
+    ./Build
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    /usr/bin/perl Makefile.PL
+    make
+
+  fi
+
+}
+
+check() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build test
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make test
+
+  fi
+
+}
+
+package() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build install
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make install
+
+  fi
+
+  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+
+}

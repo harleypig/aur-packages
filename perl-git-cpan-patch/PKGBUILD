@@ -1,0 +1,99 @@
+# CPAN Name  : Git-CPAN-Patch
+# Maintainer : Alan Young <harleypig@gmail.com>
+# Generator  : CPANPLUS::Dist::Arch 1.21
+# Repository : http://github.com/harleypig/aur-packages
+
+arch=('any')
+
+depends=('perl>=5.10.0' 'perl-backpan-index' 'perl-class'
+         'perl-datetime-format-w3cdtf' 'perl-file-chdir' 'perl-file-chmod'
+         'perl-git-repository' 'perl-libwww' 'perl-metacpan-api'
+         'perl-method-signatures' 'perl-moose' 'perl-moosex-app-cmd'
+         'perl-moosex-semiaffordanceaccessor')
+
+license=('PerlArtistic' 'GPL')
+makedepends=('perl-test-compile')
+md5sums=('fb958b5c3738cdbbaee22ac55dc68a9d')
+options=('!emptydirs')
+pkgdesc="Patch CPAN modules using Git"
+pkgname='perl-git-cpan-patch'
+pkgrel='1'
+pkgver='0.8.0'
+sha512sums=('efdec02e218581e04520a5c8a6f6b1a59c7d61f0e1e9604de5b05f706bf8a8e82896d674049ae20b75d1aadab8d6ce0d7ed3c70980813ecfd8fddb46127aeec0')
+source=('http://search.cpan.org/CPAN/authors/id/Y/YA/YANICK/Git-CPAN-Patch-0.8.0.tar.gz')
+url='http://search.cpan.org/dist/Git-CPAN-Patch'
+
+_distdir="${srcdir}/Git-CPAN-Patch-0.8.0"
+
+build() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    /usr/bin/perl Build.PL
+    ./Build
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    /usr/bin/perl Makefile.PL
+    make
+
+  fi
+
+}
+
+check() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build test
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make test
+
+  fi
+
+}
+
+package() {
+
+  export MODULEBUILDRC=/dev/null                                \
+         PERL5LIB=""                                            \
+         PERL_AUTOINSTALL=--skipdeps                            \
+         PERL_MB_OPT="--installdirs vendor --destdir '$pkgdir'" \
+         PERL_MM_OPT="INSTALLDIRS=vendor DESTDIR='$pkgdir'"     \
+         PERL_MM_USE_DEFAULT=1
+
+  cd "$_distdir"
+
+  if [[ -e ./Build.PL ]]; then
+
+    ./Build install
+
+  elif [[ -e ./Makefile.PL ]]; then
+
+    make install
+
+  fi
+
+  find "$pkgdir" -name .packlist -o -name perllocal.pod -delete
+
+}
