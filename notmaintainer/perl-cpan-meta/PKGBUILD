@@ -1,23 +1,23 @@
-# CPAN Name  : Git-CPAN-Patch
+# CPAN Name  : CPAN-Meta
 # Maintainer : Alan Young <harleypig@gmail.com>
 # Generator  : CPANPLUS::Dist::Arch 1.21
 # Repository : http://github.com/harleypig/aur-packages
 
 arch=('any')
-depends=('perl>=5.10.0' 'perl-backpan-index' 'perl-class' 'perl-datetime-format-w3cdtf' 'perl-file-chdir' 'perl-file-chmod' 'perl-git-repository' 'perl-libwww' 'perl-metacpan-api' 'perl-method-signatures' 'perl-moose' 'perl-moosex-app-cmd' 'perl-moosex-semiaffordanceaccessor')
+depends=('perl-cpan-meta-requirements>=2.121' 'perl-cpan-meta-yaml>=0.008' 'perl-parse-cpan-meta>=1.4403')
 license=('PerlArtistic' 'GPL')
-makedepends=('perl-test-compile')
-md5sums=('fb958b5c3738cdbbaee22ac55dc68a9d')
+makedepends=()
+md5sums=('83d00ee341ca2a6d8d5e5f9d4bd9d41e')
 options=('!emptydirs')
-pkgdesc="Patch CPAN modules using Git"
-pkgname='perl-git-cpan-patch'
+pkgdesc="the distribution metadata for a CPAN dist"
+pkgname='perl-cpan-meta'
 pkgrel='1'
-pkgver='0.8.0'
-sha512sums=('efdec02e218581e04520a5c8a6f6b1a59c7d61f0e1e9604de5b05f706bf8a8e82896d674049ae20b75d1aadab8d6ce0d7ed3c70980813ecfd8fddb46127aeec0')
-source=('http://search.cpan.org/CPAN/authors/id/Y/YA/YANICK/Git-CPAN-Patch-0.8.0.tar.gz')
-url='http://search.cpan.org/dist/Git-CPAN-Patch'
+pkgver='2.120921'
+sha512sums=('0a20ce69515c7f52656bd6d9354ea16419cd2b7cd604ebbd5b07518ff08766d0173b23f6ea6b7a4532d0dbde8f51312d869636a41f12bd743ec96362f5725a55')
+source=('http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/CPAN-Meta-2.120921.tar.gz')
+url='http://search.cpan.org/dist/CPAN-Meta'
 
-_distdir="${srcdir}/Git-CPAN-Patch-0.8.0"
+_distdir="${srcdir}/CPAN-Meta-2.120921"
 
 build() {
 
