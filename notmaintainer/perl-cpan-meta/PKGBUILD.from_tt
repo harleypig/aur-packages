@@ -1,23 +1,23 @@
-# CPAN Name  : Net-CloudStack
+# CPAN Name  : CPAN-Meta
 # Maintainer : Alan Young <harleypig@gmail.com>
-# Generator  : CPANPLUS-Dist-Arch 1.21
+# Generator  : CPANPLUS::Dist::Arch 1.22
 # Repository : http://github.com/harleypig/aur-packages
 
 arch=('any')
-depends=('perl-http-message' 'perl-json' 'perl-libwww' 'perl-mouse' 'perl-uri-encode' 'perl-xml-simple' 'perl-xml-twig')
+depends=('perl-cpan-meta-requirements>=2.121' 'perl-cpan-meta-yaml>=0.008' 'perl-parse-cpan-meta>=1.4403')
 license=('PerlArtistic' 'GPL')
 makedepends=()
-md5sums=('9bda84219aaaaf62f98a45fd93dcc59e')
+md5sums=('83d00ee341ca2a6d8d5e5f9d4bd9d41e')
 options=('!emptydirs')
-pkgdesc="Bindings for the CloudStack API"
-pkgname='perl-net-cloudstack'
-pkgrel='2'
-pkgver='0.01003'
-sha512sums=('e3bfc530e1b368c49f5f5e63cf10e8ff95e322548ec4915ae284bb519cdf901adb71ec713d356d17085bc933872cc9708abf2b17e5a3fef7c4486a9341175d40')
-source=('http://search.cpan.org/CPAN/authors/id/S/SN/SNUMANO/Net-CloudStack-0.01003.tar.gz')
-url='http://search.cpan.org/dist/Net-CloudStack'
+pkgdesc="the distribution metadata for a CPAN dist"
+pkgname='perl-cpan-meta'
+pkgrel='1'
+pkgver='2.120921'
+sha512sums=('0a20ce69515c7f52656bd6d9354ea16419cd2b7cd604ebbd5b07518ff08766d0173b23f6ea6b7a4532d0dbde8f51312d869636a41f12bd743ec96362f5725a55')
+source=('http://search.cpan.org/CPAN/authors/id/D/DA/DAGOLDEN/CPAN-Meta-2.120921.tar.gz')
+url='http://search.cpan.org/dist/CPAN-Meta'
 
-_distdir="${srcdir}/Net-CloudStack-0.01003"
+_distdir="${srcdir}/CPAN-Meta-2.120921"
 
 build() {
 
