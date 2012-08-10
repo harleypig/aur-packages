@@ -1,6 +1,6 @@
 # CPAN Name  : CPAN-Meta-Requirements
 # Maintainer : Alan Young <harleypig@gmail.com>
-# Generator  : CPANPLUS::Dist::Arch 1.21
+# Generator  : CPANPLUS::Dist::Arch 1.23
 
 arch=('any')
 backup=()
