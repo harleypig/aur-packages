@@ -4,12 +4,12 @@
 
 pkgname='perl-devel-globaldestruction'
 pkgver='0.09'
-pkgrel='1'
+pkgrel='2'
 pkgdesc="Expose the flag which marks global"
 arch=('any')
 license=('PerlArtistic' 'GPL')
 options=('!emptydirs')
-depends=('perl>=5.6.0' 'perl-sub-exporter')
+depends=('perl>=5.6.0' 'perl-sub-exporter' 'perl-sub-exporter-progressive>=0.001002')
 makedepends=()
 url='http://search.cpan.org/dist/Devel-GlobalDestruction'
 source=('http://search.cpan.org/CPAN/authors/id/R/RI/RIBASUSHI/Devel-GlobalDestruction-0.09.tar.gz')
