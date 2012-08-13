@@ -1,0 +1,19 @@
+Steps needed to create a new package:
+
+Given module name (e.g., Some::Module) perform the following steps.
+
+  Convert name to match arch requirements (perl-some-module).
+  Create and change directory, copy skel files and make any changes.
+  Determine distribution page (http://search.cpan.org/dist/Some::Module is a good bet).
+  Create PKGBUILD (see below).
+
+Steps needed to update an existing package:
+
+  Check if module has an update (source? perhaps download 02packages.txt first?).
+  Check if there are any bugs or notifications against package on AUR.
+  Create PKGBUILD (see below).
+
+Steps needed to create PKGBUILD
+
+  Find and download latest source tarball.
+  Determine or calculate required fields for PKGBUILD.
